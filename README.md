@@ -212,7 +212,9 @@ Nenhuma tecnologia além do conteúdo permitido pela FIAP foi utilizada.
         oportunidades.js
         plano.js
 
-  /Oportunidades | # Tela 2
+  /Plano | # Tela 3
+
+  /Oportunidades | # Tela 4
     oportunidades.html
     oportunidades.css
     /scripts
