@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Home/home.css" />
+    <script defer src="Home/home.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary" href="index.html">SkillPath</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#por-que-importa">Por que isso importa?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#ods">ODS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#hero">Começar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary ms-2" href="diagnostico.html">Começar agora</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">
+                        O futuro do trabalho já começou. Você está preparado?
+                    </h1>
+                    <p class="lead mb-4">
+                        Use o SkillPath para descobrir o risco da sua profissão e traçar
+                        um plano de requalificação baseado em competências do futuro.
+                    </p>
+                    <a href="diagnostico.html" class="btn btn-primary btn-lg">Descobrir minha rota</a>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="hero-icon">
+                        <svg width="400" height="300" viewBox="0 0 400 300" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="200" cy="150" r="80" fill="#0052CC" opacity="0.2" />
+                            <path d="M150 150 L200 120 L250 150 L200 180 Z" fill="#0052CC" />
+                            <circle cx="200" cy="150" r="30" fill="#0052CC" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="por-que-importa" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">Por que isso importa?</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="card-icon mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="#0052CC" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <line x1="12" y1="2" x2="12" y2="4" />
+                                    <circle cx="12" cy="1.5" r="0.75" />
+                                    <rect x="6" y="5" width="12" height="9" rx="2" />
+                                    <circle cx="9" cy="9" r="1" />
+                                    <circle cx="15" cy="9" r="1" />
+                                    <path d="M9 12c1.5 1 4.5 1 6 0" />
+                                    <rect x="4" y="14" width="16" height="6" rx="2" />
+                                    <path d="M4 16H2" />
+                                    <path d="M22 16h-2" />
+                                    <path d="M10 20v2" />
+                                    <path d="M14 20v2" />
+                                </svg>
+                            </div>
+                            <h5 class="card-title">Automação</h5>
+                            <p class="card-text">
+                                Profissões estão mudando rapidamente. Muitas atividades
+                                rotineiras já estão sendo automatizadas, criando um risco real
+                                para trabalhadores em diversas áreas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="card-icon mb-3">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0052CC"
+                                    stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                    <circle cx="9" cy="7" r="4" />
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+                                </svg>
+                            </div>
+                            <h5 class="card-title">Desigualdade</h5>
+                            <p class="card-text">
+                                Jovens, mulheres e pessoas com menor escolaridade são mais
+                                vulneráveis aos impactos da automação. A requalificação é
+                                essencial para reduzir essas desigualdades.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="card-icon mb-3">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#0052CC"
+                                    stroke-width="2">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                                    <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                                </svg>
+                            </div>
+                            <h5 class="card-title">Requalificação</h5>
+                            <p class="card-text">
+                                A requalificação contínua e o aprendizado ao longo da vida não
+                                são mais opcionais. São necessidades urgentes para se manter
+                                relevante no mercado de trabalho.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ods" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">
+                Conectado aos Objetivos de Desenvolvimento Sustentável
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-3 col-sm-6">
+                    <div class="card text-center h-100 border-primary">
+                        <div class="card-body">
+                            <div class="ods-number mb-3">4</div>
+                            <h6 class="card-title">ODS 4</h6>
+                            <p class="card-text small">Educação de qualidade</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card text-center h-100 border-primary">
+                        <div class="card-body">
+                            <div class="ods-number mb-3">8</div>
+                            <h6 class="card-title">ODS 8</h6>
+                            <p class="card-text small">
+                                Trabalho decente e crescimento econômico
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card text-center h-100 border-primary">
+                        <div class="card-body">
+                            <div class="ods-number mb-3">9</div>
+                            <h6 class="card-title">ODS 9</h6>
+                            <p class="card-text small">
+                                Indústria, inovação e infraestrutura
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="card text-center h-100 border-primary">
+                        <div class="card-body">
+                            <div class="ods-number mb-3">10</div>
+                            <h6 class="card-title">ODS 10</h6>
+                            <p class="card-text small">Redução das desigualdades</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p class="mb-0">SkillPath – Reimaginando o futuro do trabalho.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/comuns.js"></script>
+</body>
+
+</html>
