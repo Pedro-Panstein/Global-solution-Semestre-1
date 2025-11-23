@@ -1,0 +1,303 @@
+<!-- 1. Base HTML -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oportunidades & Comunidade - SkillPath</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="oportunidades.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="scripts/comun.js"></script>
+    <script defer src="scripts/opportunities.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary" href="index.html">SkillPath</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Home/home.html">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="p-4 bg-bg">
+        <section class="py-5 color-text">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h1 class="fw-bold mb-3">Oportunidades & Comunidade</h1>
+                    <p class="lead text-muted">
+                        Veja como transformar seu plano em ação, conectado a redes de
+                        aprendizado e impacto.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <div class="card shadow-sm mb-5">
+            <div class="card-body p-4">
+                <h5 class="card-title mb-3">Resumo da sua jornada</h5>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <strong>Profissão atual:</strong><br />
+                        <span id="workInfo" class="text-muted">-</span>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <strong>Horas recomendadas:</strong><br />
+                        <span id="recommendedHoursInfo" class="text-muted">-</span>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <strong>Horas semanais:</strong><br />
+                        <span id="weeklyHoursInfo" class="text-muted">-</span>
+                    </div>
+                    <div class="col-md-3 col-sm-6 mb-3">
+                        <strong>Semanas estimadas:</strong><br />
+                        <span id="weeksCountInfo" class="text-muted">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="mb-5">
+            <h2 class="mb-4 fw-bold">Onde você pode aprender?</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Cursos Online Gratuitos</h5>
+                            <p class="card-text">
+                                Acesso a plataformas com cursos gratuitos de alta qualidade.
+                            </p>
+                            <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#modalCursos">
+                                Ver detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">ONGs e Projetos Comunitários</h5>
+                            <p class="card-text">
+                                Capacitação gratuita e apoio à requalificação profissional.
+                            </p>
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#modalONGs">
+                                Ver detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Comunidades de Estudo</h5>
+                            <p class="card-text">
+                                Grupos para trocar experiências e aprender juntos.
+                            </p>
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#modalComunidades">
+                                Ver detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Mentorias</h5>
+                            <p class="card-text">
+                                Acompanhamento com profissionais experientes.
+                            </p>
+                            <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#modalMentorias">
+                                Ver detalhes
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-5">
+            <h2 class="mb-4 fw-bold">Novos modelos de trabalho</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Trabalho Remoto</h5>
+                            <p class="card-text">
+                                Flexibilidade e acesso a mercados globais.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Trabalho Híbrido</h5>
+                            <p class="card-text">
+                                Combinação de trabalho presencial e remoto.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Economia de Plataformas</h5>
+                            <p class="card-text">
+                                Projetos temporários e autonomia profissional.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">Trabalhos de Impacto Social</h5>
+                            <p class="card-text">
+                                Contribuição para iniciativas sociais relevantes.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-5">
+            <h2 class="mb-4 fw-bold">
+                Conectando sua jornada aos Objetivos de Desenvolvimento Sustentável
+            </h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-primary">
+                        <div class="card-body">
+                            <div class="ods-number mb-3">4</div>
+                            <h5 class="card-title">ODS 4 – Educação de qualidade</h5>
+                            <p class="card-text">Aprendizado contínuo e inclusivo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-primary">
+                        <div class="card-body">
+                            <div class="ods-number mb-3">8</div>
+                            <h5 class="card-title">ODS 8 – Trabalho decente</h5>
+                            <p class="card-text">Transições profissionais estáveis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-primary">
+                        <div class="card-body">
+                            <div class="ods-number mb-3">9</div>
+                            <h5 class="card-title">ODS 9 – Inovação</h5>
+                            <p class="card-text">Tecnologia para orientar carreiras.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-primary">
+                        <div class="card-body">
+                            <div class="ods-number mb-3">10</div>
+                            <h5 class="card-title">ODS 10 – Redução das desigualdades</h5>
+                            <p class="card-text">Apoio a quem está em maior risco.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+            <a href="index.html" class="btn btn-outline-secondary btn-lg">Recomeçar jornada</a>
+            <a href="plano.html" class="btn btn-outline-primary btn-lg">Voltar ao plano</a>
+        </div>
+        <div class="modal fade" id="modalCursos" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cursos Online Gratuitos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Plataformas como Coursera, edX, Khan Academy oferecem cursos
+                            gratuitos.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modalONGs" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ONGs e Projetos Comunitários</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>ONGs oferecem capacitação gratuita e apoio profissional.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modalComunidades" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Comunidades de Estudo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Grupos online e presenciais para estudo coletivo.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modalMentorias" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Mentorias</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Conexão com profissionais experientes para orientação.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Fechar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

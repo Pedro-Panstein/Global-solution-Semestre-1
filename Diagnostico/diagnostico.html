@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnóstico - SkillPath</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../global.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-primary" href="index.html">SkillPath</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../Home/home.html">Home</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <h1 class="text-center mb-4 fw-bold">Comece pela sua profissão atual</h1>
+                    <p class="text-center text-muted mb-5">Selecione sua profissão e veja o risco de automação, habilidades futuras e caminhos de transição.</p>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body p-4">
+                            <h2 class="text-center mb-4 fw-bold">Qual profissão você quer explorar?</h2>
+                            <p class="text-center text-muted mb-4">Clique em uma profissão para ver o risco de automação, habilidades futuras e caminhos de transição.</p>
+                            <div class="row g-3" id="gridProfissoes">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="quizTags" class="d-none">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="card shadow-sm mb-4">
+                                    <div class="card-body p-4">
+                                        <h3 class="card-title mb-3 text-center">Conte-nos sobre você</h3>
+                                        <p class="text-center text-muted mb-4">Selecione todas as opções que se aplicam ao seu perfil ou áreas de interesse:</p>
+                                        
+                                        <div class="quiz-tags-container mb-4" id="tagsContainer">
+                                        </div>
+                                        
+                                        <div class="text-center mt-4">
+                                            <button class="btn btn-primary btn-lg px-5" id="btnContinuarQuiz">Ver Resultados</button>
+                                            <button class="btn btn-outline-secondary btn-lg ms-2 px-4" id="btnVoltarQuiz">Voltar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="resultadoDiagnostico" class="d-none">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                                <div class="card shadow-sm mb-4">
+                                    <div class="card-body p-4">
+                                        <h3 class="card-title mb-4">Resultado do Diagnóstico</h3>
+                                        
+                                        <div class="mb-4">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span class="fw-bold">Risco de Automação</span>
+                                                <span id="riscoTexto" class="fw-bold"></span>
+                                            </div>
+                                            <div class="progress" style="height: 30px;">
+                                                <div id="riscoBarra" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <h5 class="fw-bold mb-3">Tendência da Profissão</h5>
+                                            <p id="tendenciaTexto" class="text-muted"></p>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <h5 class="fw-bold mb-3">Habilidades Futuras Recomendadas</h5>
+                                            <div id="skillsContainer" class="d-flex flex-wrap gap-2"></div>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <h5 class="fw-bold mb-3">Rotas de Migração Possíveis</h5>
+                                            <ul id="rotasContainer" class="list-group"></ul>
+                                        </div>
+
+                                        <div class="text-center mt-4">
+                                            <button class="btn btn-primary btn-lg" id="btnGerarPlano">Gerar meu plano de requalificação</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">SkillPath – Reimaginando o futuro do trabalho.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/comuns.js"></script>
+    <script src="js/diagnostico.js"></script>
+</body>
+</html>
+

@@ -1,9 +1,3 @@
-:root {
-  --cor-primaria: #0052cc;
-  --cor-fundo: #f5f6fa;
-  --cor-texto: #2c3e50;
-}
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
