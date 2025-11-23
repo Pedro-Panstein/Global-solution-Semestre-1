@@ -690,6 +690,6 @@ document.addEventListener("DOMContentLoaded", function () {
       salvarDados("tagsSelecionadas", JSON.stringify(tagsSelecionadas));
     }
 
-    window.location.href = "plano.html";
+    window.location.href = "../Plano/plano.html";
   });
 });
