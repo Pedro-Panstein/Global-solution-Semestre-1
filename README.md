@@ -213,6 +213,9 @@ Nenhuma tecnologia além do conteúdo permitido pela FIAP foi utilizada.
         plano.js
 
   /Plano | # Tela 3
+    plano.html
+    plano.css
+    plano.js
 
   /Oportunidades | # Tela 4
     oportunidades.html

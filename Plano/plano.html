@@ -2,20 +2,20 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plano de Estudos - SkillPath</title>
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- CSS do plano -->
-    <link rel="stylesheet" href="plano.css">
-    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="plano.css" />
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon" />
+    <script defer src="plano.js"></script>
 </head>
 
 <body>
-
     <!-- NAVBAR -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
@@ -38,14 +38,14 @@
     <!-- HERO -->
     <section class="hero">
         <div class="container hero-inner">
-
             <div class="hero-text">
                 <h1 class="hero-title">
                     O seu plano de estudos está pronto, siga ele e alcance seu objetivo!
                 </h1>
 
                 <p class="hero-subtitle">
-                    Descubra e aproveite o plano de estudos que o SkillPath preparou para você.
+                    Descubra e aproveite o plano de estudos que o SkillPath preparou
+                    para você.
                 </p>
 
                 <a href="#plano" class="btn btn-primary btn-lg hero-cta">
@@ -54,9 +54,11 @@
             </div>
 
             <div class="hero-visual">
-                <div class="hero-blob">
-                    <div class="hero-icon"></div>
-                </div>
+                <svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="200" cy="150" r="80" fill="#0052CC" opacity="0.2" />
+                    <path d="M150 150 L200 120 L250 150 L200 180 Z" fill="#0052CC" />
+                    <circle cx="200" cy="150" r="30" fill="#0052CC" />
+                </svg>
             </div>
         </div>
     </section>
@@ -65,7 +67,6 @@
     <section id="plano" class="plan-section">
         <div class="container">
             <div class="wrapper mx-auto">
-
                 <!-- CABEÇALHO DO PLANO -->
                 <header
                     class="mb-3 border-bottom pb-2 d-flex flex-wrap justify-content-between align-items-center gap-2">
@@ -81,7 +82,8 @@
                     class="subtitle d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-1 mb-3">
                     <span>
                         Período:
-                        <strong>Manhã (8h às 12h) • Tarde (13h30 às 18h) • Noite (19h30 às 21h)</strong>
+                        <strong>Manhã (8h às 12h) • Tarde (13h30 às 18h) • Noite (19h30 às
+                            21h)</strong>
                     </span>
                     <span id="tasks-info" class="small text-muted"></span>
                 </div>
@@ -203,8 +205,13 @@
                         </div>
                     </div>
                 </div>
-
             </div>
+        </div>
+
+        <div class="text-center mt-5">
+            <a href="../Oportunidades/oportunidades.html" class="btn btn-primary btn-lg hero-cta">
+                Acessar comunidade
+            </a>
         </div>
     </section>
 
@@ -217,525 +224,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- JS do plano com 12 variações + detecção de curso -->
-    <script>
-        // ================= 1. PADRÃO DE HORÁRIOS (igual para todos os cursos) =================
-        const slotPattern = {
-            // manhã
-            "manha-seg": { topic: "core1", detail: "t1", hours: 4 },
-            "manha-ter": { topic: "core1", detail: "t2", hours: 4 },
-            "manha-qua": { topic: "core2", detail: "t1", hours: 4 },
-            "manha-qui": { topic: "core2", detail: "t2", hours: 4 },
-            "manha-sex": { topic: "core3", detail: "p1", hours: 4 },
-            "manha-sab": { topic: "core3", detail: "p2", hours: 4 },
-            "manha-dom": { topic: "rest" },
-
-            // tarde
-            "tarde-seg": { topic: "practice1", detail: "p1", hours: 4.5 },
-            "tarde-ter": { topic: "practice1", detail: "p2", hours: 4.5 },
-            "tarde-qua": { topic: "practice2", detail: "p1", hours: 4.5 },
-            "tarde-qui": { topic: "design", detail: "d1", hours: 4.5 },
-            "tarde-sex": { topic: "support", detail: "s1", hours: 4.5 },
-            "tarde-sab": { topic: "rest" },
-            "tarde-dom": { topic: "rest" },
-
-            // noite
-            "noite-seg": { topic: "tools", detail: "k1", hours: 1.5 },
-            "noite-ter": { topic: "tools", detail: "k2", hours: 1.5 },
-            "noite-qua": { topic: "english", detail: "e1", hours: 1.5 },
-            "noite-qui": { topic: "review", detail: "r1", hours: 1.5 },
-            "noite-sex": { topic: "review", detail: "r2", hours: 1.5 },
-            "noite-sab": { topic: "rest" },
-            "noite-dom": { topic: "rest" }
-        };
-
-        // ================= 2. PLANOS PARA OS 12 CURSOS =================
-        const plans = {
-            // 1 - Desenvolvedor Front End
-            frontend: {
-                courseName: "Desenvolvedor Front End",
-                focusTitle: "Dev Front End",
-                focusChips: ["HTML & CSS", "JavaScript", "React", "UI/UX"],
-                avgHours: 54,
-                topics: {
-                    core1: { tag: "html", label: "HTML & CSS", details: { t1: "Fundamentos", t2: "Layout e responsividade" } },
-                    core2: { tag: "js", label: "JavaScript", details: { t1: "Lógica, DOM", t2: "APIs e assíncrono" } },
-                    core3: { tag: "fe", label: "React", details: { p1: "Fundamentos", p2: "Projeto prático" } },
-                    practice1: { tag: "js", label: "JavaScript", details: { p1: "Exercícios práticos", p2: "Desafios" } },
-                    practice2: { tag: "fe", label: "Front End", details: { p1: "Projeto guiado" } },
-                    design: { tag: "ui", label: "UI / UX Design", details: { d1: "Protótipos e fluxo de navegação" } },
-                    support: { tag: "fe", label: "Acessibilidade & Performance", details: { s1: "Boas práticas web" } },
-                    tools: { tag: "fe", label: "Ferramentas Front End", details: { k1: "Git & GitHub", k2: "npm, bundlers, Vite" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Leitura de documentação" } },
-                    review: { tag: "fe", label: "Revisão & Portfólio", details: { r1: "Revisão semanal", r2: "Portfólio / Code review" } }
-                }
-            },
-
-            // 2 - Desenvolvedor Back End
-            backend: {
-                courseName: "Desenvolvedor Back End",
-                focusTitle: "Dev Back End",
-                focusChips: ["Linguagem (Java/Node)", "APIs REST", "Banco de Dados", "Arquitetura"],
-                avgHours: 48,
-                topics: {
-                    core1: { tag: "be", label: "Linguagem Back End", details: { t1: "Sintaxe e coleções", t2: "OOP / módulos" } },
-                    core2: { tag: "db", label: "Banco de Dados & SQL", details: { t1: "Modelagem e consultas", t2: "Índices, transações" } },
-                    core3: { tag: "be", label: "APIs REST", details: { p1: "Criação de endpoints", p2: "Autenticação e segurança" } },
-                    practice1: { tag: "be", label: "Back End", details: { p1: "Desafios de API", p2: "Integração com front" } },
-                    practice2: { tag: "be", label: "Projetos práticos", details: { p1: "API completa com banco" } },
-                    design: { tag: "se", label: "Boas práticas & Clean Code", details: { d1: "SOLID, camadas" } },
-                    support: { tag: "devops", label: "Deploy & Docker básico", details: { s1: "Containerizar a API" } },
-                    tools: { tag: "be", label: "Ferramentas Back End", details: { k1: "Debugging & logs", k2: "Testes unitários" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Leitura de RFCs / docs" } },
-                    review: { tag: "be", label: "Revisão & Refatoração", details: { r1: "Refatorar código", r2: "Melhorar performance" } }
-                }
-            },
-
-            // 3 - Desenvolvedor Full Stack
-            fullstack: {
-                courseName: "Desenvolvedor Full Stack",
-                focusTitle: "Dev Full Stack",
-                focusChips: ["Front End", "Back End", "APIs REST", "Banco de Dados"],
-                avgHours: 54,
-                topics: {
-                    core1: { tag: "fe", label: "Front End (HTML/CSS/JS)", details: { t1: "Fundamentos", t2: "Componentização" } },
-                    core2: { tag: "be", label: "Back End (Node/Java)", details: { t1: "Rotas & controllers", t2: "Persistência com DB" } },
-                    core3: { tag: "fs", label: "Integração Full Stack", details: { p1: "API + Front", p2: "Projeto completo" } },
-                    practice1: { tag: "fe", label: "Front End", details: { p1: "Exercícios UI", p2: "Reprodução de layouts" } },
-                    practice2: { tag: "be", label: "Back End", details: { p1: "Desafios de API" } },
-                    design: { tag: "ux", label: "UX & Experiência", details: { d1: "Fluxos e jornadas" } },
-                    support: { tag: "devops", label: "Deploy Full Stack", details: { s1: "Docker + hospedagem" } },
-                    tools: { tag: "fs", label: "Ferramentas Full Stack", details: { k1: "Git, GitHub", k2: "CI básico" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Docs e APIs" } },
-                    review: { tag: "fs", label: "Revisão & Portfólio", details: { r1: "Revisão semanal", r2: "Ajustes em projetos" } }
-                }
-            },
-
-            // 4 - Desenvolvedor Mobile
-            mobile: {
-                courseName: "Desenvolvedor Mobile",
-                focusTitle: "Dev Mobile",
-                focusChips: ["Fundamentos Mobile", "Flutter/React Native", "APIs", "Publicação"],
-                avgHours: 48,
-                topics: {
-                    core1: { tag: "mobile", label: "Fundamentos Mobile", details: { t1: "Arquitetura de apps", t2: "Componentes e navegação" } },
-                    core2: { tag: "mobile", label: "UI Mobile", details: { t1: "Layouts responsivos", t2: "Design guidelines" } },
-                    core3: { tag: "mobile", label: "Flutter / React Native", details: { p1: "Widgets/Components", p2: "Projeto prático" } },
-                    practice1: { tag: "mobile", label: "APIs & Integrações", details: { p1: "Consumo de APIs", p2: "Autenticação" } },
-                    practice2: { tag: "mobile", label: "Offline & Storage", details: { p1: "Banco local (SQLite, etc.)" } },
-                    design: { tag: "ui", label: "UX Mobile", details: { d1: "Gestos, navegação, feedback" } },
-                    support: { tag: "mobile", label: "Publicação & Store", details: { s1: "Builds e publicação" } },
-                    tools: { tag: "mobile", label: "Ferramentas", details: { k1: "Emuladores", k2: "Debug em device" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Docs de SDKs" } },
-                    review: { tag: "mobile", label: "Revisão & Portfólio", details: { r1: "Refino de apps", r2: "Publicar no GitHub" } }
-                }
-            },
-
-            // 5 - Engenheiro de Dados
-            dataeng: {
-                courseName: "Engenheiro de Dados",
-                focusTitle: "Engenharia de Dados",
-                focusChips: ["Python", "SQL", "ETL", "Big Data"],
-                avgHours: 50,
-                topics: {
-                    core1: { tag: "data", label: "Python para Dados", details: { t1: "Pandas & ETL", t2: "Boas práticas" } },
-                    core2: { tag: "db", label: "SQL & Modelagem", details: { t1: "Consultas avançadas", t2: "Modelagem dimensional" } },
-                    core3: { tag: "data", label: "Pipelines", details: { p1: "ETL/ELT", p2: "Airflow / orquestração" } },
-                    practice1: { tag: "data", label: "Data Pipelines", details: { p1: "Desafios ETL", p2: "Integração com APIs" } },
-                    practice2: { tag: "data", label: "Big Data", details: { p1: "Spark / Dataframes" } },
-                    design: { tag: "arch", label: "Arquiteturas de Dados", details: { d1: "Lakes, warehouses" } },
-                    support: { tag: "cloud", label: "Cloud Data", details: { s1: "S3/GCS, buckets, permissões" } },
-                    tools: { tag: "data", label: "Ferramentas", details: { k1: "dbt, Airflow", k2: "Versionamento de schemas" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Docs de serviços cloud" } },
-                    review: { tag: "data", label: "Revisão & Qualidade", details: { r1: "Qualidade de dados", r2: "Monitoramento" } }
-                }
-            },
-
-            // 6 - Cientista de Dados
-            datasci: {
-                courseName: "Cientista de Dados",
-                focusTitle: "Data Science",
-                focusChips: ["Python", "Estatística", "Machine Learning", "Visualização"],
-                avgHours: 50,
-                topics: {
-                    core1: { tag: "data", label: "Python & Análise de Dados", details: { t1: "Pandas, Numpy", t2: "Limpeza e EDA" } },
-                    core2: { tag: "stats", label: "Estatística", details: { t1: "Probabilidade", t2: "Testes de hipótese" } },
-                    core3: { tag: "ml", label: "Machine Learning", details: { p1: "Modelos clássicos", p2: "Projeto de classificação" } },
-                    practice1: { tag: "data", label: "Projetos de Análise", details: { p1: "Notebooks de exploração", p2: "Storytelling de dados" } },
-                    practice2: { tag: "ml", label: "Experimentos", details: { p1: "Tuning & validação" } },
-                    design: { tag: "data", label: "Visualização", details: { d1: "Dashboards e gráficos" } },
-                    support: { tag: "data", label: "Boas práticas", details: { s1: "Reprodutibilidade" } },
-                    tools: { tag: "data", label: "Ferramentas DS", details: { k1: "Jupyter, VSCode", k2: "Pipelines simples" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Artigos e documentação" } },
-                    review: { tag: "data", label: "Revisão & Portfolio", details: { r1: "Refinar notebooks", r2: "Publicar projetos" } }
-                }
-            },
-
-            // 7 - Engenheiro de Machine Learning
-            mleng: {
-                courseName: "Engenheiro de Machine Learning",
-                focusTitle: "ML Engineer",
-                focusChips: ["ML avançado", "MLOps", "Deploy", "Monitoramento"],
-                avgHours: 50,
-                topics: {
-                    core1: { tag: "ml", label: "Fundamentos ML avançado", details: { t1: "Pipelines", t2: "Feature engineering" } },
-                    core2: { tag: "ml", label: "Deep Learning", details: { t1: "Redes neurais", t2: "CNN/RNN básico" } },
-                    core3: { tag: "ml", label: "Modelos em produção", details: { p1: "Servir modelos via API", p2: "Monitorar métricas" } },
-                    practice1: { tag: "ml", label: "Projetos ML", details: { p1: "Treinar modelos", p2: "Experimentos" } },
-                    practice2: { tag: "ml", label: "Otimização", details: { p1: "Tuning, regularização" } },
-                    design: { tag: "arch", label: "Arquitetura MLOps", details: { d1: "Pipelines, registry, tracking" } },
-                    support: { tag: "devops", label: "Infra ML", details: { s1: "Containers, GPUs" } },
-                    tools: { tag: "ml", label: "Ferramentas ML", details: { k1: "MLflow / Weights & Biases", k2: "Serviços cloud" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Papers & docs" } },
-                    review: { tag: "ml", label: "Revisão & Monitoring", details: { r1: "Drift e re-treino", r2: "Alertas" } }
-                }
-            },
-
-            // 8 - Engenheiro de IA / LLM Engineer
-            llm: {
-                courseName: "Engenheiro de IA / LLM Engineer",
-                focusTitle: "LLM Engineer",
-                focusChips: ["NLP", "Transformers", "Prompt Engineering", "Integrações"],
-                avgHours: 48,
-                topics: {
-                    core1: { tag: "ai", label: "Fundamentos de NLP", details: { t1: "Tokenização, embeddings", t2: "Modelos base" } },
-                    core2: { tag: "ai", label: "Transformers & LLMs", details: { t1: "Arquitetura", t2: "Fine-tuning / instruções" } },
-                    core3: { tag: "ai", label: "Aplicações com LLMs", details: { p1: "Chatbots & assistentes", p2: "Ferramentas (tools, RAG)" } },
-                    practice1: { tag: "ai", label: "Prompt Engineering", details: { p1: "Prompts robustos", p2: "Avaliação de respostas" } },
-                    practice2: { tag: "ai", label: "RAG & vetores", details: { p1: "Indexação e consultas" } },
-                    design: { tag: "arch", label: "Arquitetura de apps IA", details: { d1: "Pipelines, orquestração" } },
-                    support: { tag: "data", label: "Gestão de dados", details: { s1: "Qualidade e privacidade" } },
-                    tools: { tag: "ai", label: "Ferramentas LLM", details: { k1: "APIs de provedores", k2: "SDKs e libs" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Docs e papers" } },
-                    review: { tag: "ai", label: "Revisão & avaliação", details: { r1: "Avaliar outputs", r2: "Melhorar prompts" } }
-                }
-            },
-
-            // 9 - DevOps / SRE
-            devops: {
-                courseName: "DevOps / Site Reliability Engineer",
-                focusTitle: "DevOps / SRE",
-                focusChips: ["Linux & Redes", "CI/CD", "Docker & K8s", "Monitoramento"],
-                avgHours: 48,
-                topics: {
-                    core1: { tag: "devops", label: "Linux & Shell", details: { t1: "Comandos essenciais", t2: "Automação com scripts" } },
-                    core2: { tag: "devops", label: "Redes & HTTP", details: { t1: "Conceitos de rede", t2: "Balanceamento / DNS" } },
-                    core3: { tag: "devops", label: "Docker & Kubernetes", details: { p1: "Containers", p2: "Orquestração básica" } },
-                    practice1: { tag: "devops", label: "CI/CD", details: { p1: "Pipelines", p2: "Automatizar deploy" } },
-                    practice2: { tag: "devops", label: "Infra como código", details: { p1: "Terraform, etc." } },
-                    design: { tag: "arch", label: "Arquitetura resiliente", details: { d1: "Alta disponibilidade" } },
-                    support: { tag: "devops", label: "Observabilidade", details: { s1: "Logs, métricas, traces" } },
-                    tools: { tag: "devops", label: "Ferramentas", details: { k1: "GitHub Actions", k2: "Monitoramento (Prometheus, etc.)" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Docs de cloud" } },
-                    review: { tag: "devops", label: "Revisão & tuning", details: { r1: "Ajustar infra", r2: "Reduzir incidentes" } }
-                }
-            },
-
-            // 10 - QA / Analista de Testes
-            qa: {
-                courseName: "QA / Analista de Testes",
-                focusTitle: "QA / Testes",
-                focusChips: ["Fundamentos de Teste", "Testes Manuais", "Automação", "APIs & Performance"],
-                avgHours: 40,
-                topics: {
-                    core1: { tag: "qa", label: "Fundamentos de Testes", details: { t1: "Tipos de teste", t2: "Planejamento" } },
-                    core2: { tag: "qa", label: "Automação Web", details: { t1: "Selenium / Cypress", t2: "Boas práticas" } },
-                    core3: { tag: "qa", label: "Testes de API", details: { p1: "Postman / RestAssured", p2: "Validação de contratos" } },
-                    practice1: { tag: "qa", label: "Casos de teste", details: { p1: "Escrita", p2: "Execução e registro" } },
-                    practice2: { tag: "qa", label: "Testes exploratórios", details: { p1: "Descobrir cenários" } },
-                    design: { tag: "qa", label: "Estratégia de testes", details: { d1: "Cobertura e riscos" } },
-                    support: { tag: "qa", label: "Testes de performance", details: { s1: "Carga, stress" } },
-                    tools: { tag: "qa", label: "Ferramentas QA", details: { k1: "Gerenciamento de testes", k2: "Integração com CI" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Leitura de requisitos" } },
-                    review: { tag: "qa", label: "Revisão & qualidade", details: { r1: "Analisar falhas", r2: "Melhorar cenários" } }
-                }
-            },
-
-            // 11 - Engenheiro de Software
-            softeng: {
-                courseName: "Engenheiro de Software",
-                focusTitle: "Engenharia de Software",
-                focusChips: ["Algoritmos", "Clean Code", "Padrões de Projeto", "Arquitetura"],
-                avgHours: 50,
-                topics: {
-                    core1: { tag: "se", label: "Algoritmos & Estruturas", details: { t1: "Complexidade", t2: "Estruturas clássicas" } },
-                    core2: { tag: "se", label: "Clean Code & OOP", details: { t1: "Princípios de design", t2: "Refatoração" } },
-                    core3: { tag: "se", label: "Padrões de Projeto", details: { p1: "GoF", p2: "Aplicação em projetos" } },
-                    practice1: { tag: "se", label: "Desafios de código", details: { p1: "Katas", p2: "Problemas de entrevista" } },
-                    practice2: { tag: "se", label: "Projetos", details: { p1: "Arquitetar e implementar" } },
-                    design: { tag: "arch", label: "Arquitetura de Software", details: { d1: "Camadas, hexagonal" } },
-                    support: { tag: "se", label: "Colaboração & revisão", details: { s1: "Code review, PRs" } },
-                    tools: { tag: "se", label: "Ferramentas do Engenheiro", details: { k1: "IDE, debug", k2: "Build & CI" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Docs, RFCs" } },
-                    review: { tag: "se", label: "Revisão & evolução", details: { r1: "Refatorar módulos", r2: "Planejar melhorias" } }
-                }
-            },
-
-            // 12 - Arquiteto de Software
-            architect: {
-                courseName: "Arquiteto de Software",
-                focusTitle: "Arquitetura de Software",
-                focusChips: ["Arquiteturas", "Escalabilidade", "Microserviços", "Segurança"],
-                avgHours: 40,
-                topics: {
-                    core1: { tag: "arch", label: "Fundamentos de Arquitetura", details: { t1: "Qualidade (scalability, etc.)", t2: "Trade-offs" } },
-                    core2: { tag: "arch", label: "Arquiteturas modernas", details: { t1: "Microserviços", t2: "Event-driven" } },
-                    core3: { tag: "arch", label: "Design de sistemas", details: { p1: "Sistemas complexos", p2: "Documentação" } },
-                    practice1: { tag: "arch", label: "System Design", details: { p1: "Exercícios de entrevistas", p2: "Casos reais" } },
-                    practice2: { tag: "arch", label: "Provas de conceito", details: { p1: "Protótipos técnicos" } },
-                    design: { tag: "arch", label: "Domain-Driven Design", details: { d1: "Contextos limitados" } },
-                    support: { tag: "cloud", label: "Cloud & Infra", details: { s1: "Serviços gerenciados" } },
-                    tools: { tag: "arch", label: "Ferramentas do Arquiteto", details: { k1: "Diagramas", k2: "Modelagem" } },
-                    english: { tag: "english", label: "Inglês técnico", details: { e1: "Arquivos de referência" } },
-                    review: { tag: "arch", label: "Revisão & alinhamento", details: { r1: "Revisar decisões", r2: "Comunicar à equipe" } }
-                }
-            }
-        };
-
-        // ================= 3. UTILITÁRIOS =================
-        function getQueryParam(name) {
-            const params = new URLSearchParams(window.location.search);
-            return params.get(name);
-        }
-
-        function addTagClass(tagElement, tagKey) {
-            switch (tagKey) {
-                case "html":
-                    tagElement.classList.add("tag-html");
-                    break;
-                case "js":
-                    tagElement.classList.add("tag-js");
-                    break;
-                case "ui":
-                    tagElement.classList.add("tag-ui");
-                    break;
-                case "ux":
-                    tagElement.classList.add("tag-ux");
-                    break;
-                case "python":
-                    tagElement.classList.add("tag-python");
-                    break;
-                case "english":
-                    tagElement.classList.add("tag-english");
-                    break;
-
-                // tags genéricas: reaproveito cor de html
-                case "fe":
-                case "be":
-                case "fs":
-                case "mobile":
-                case "data":
-                case "ml":
-                case "ai":
-                case "devops":
-                case "qa":
-                case "se":
-                case "arch":
-                case "db":
-                case "cloud":
-                case "stats":
-                    tagElement.classList.add("tag-html");
-                    break;
-
-                default:
-                    tagElement.classList.add("tag-html");
-            }
-        }
-
-        let studyCells = [];
-        const tasksInfo = document.getElementById("tasks-info");
-
-        // ================= 4. APLICAR UM PLANO NA TELA =================
-        function applyPlan(planKey) {
-            const plan = plans[planKey] || plans["frontend"];
-
-            document.getElementById("plan-course").textContent = plan.courseName;
-            document.getElementById("focus-title").textContent = plan.focusTitle;
-
-            const badge = document.getElementById("badge-hours");
-            if (badge && plan.avgHours) {
-                badge.textContent = `Média ${plan.avgHours}h semanais`;
-            }
-
-            const chipsEl = document.getElementById("focus-chips");
-            chipsEl.innerHTML = "";
-            plan.focusChips.forEach(text => {
-                const span = document.createElement("span");
-                span.className = "chip";
-                span.textContent = text;
-                chipsEl.appendChild(span);
-            });
-
-            const allCells = document.querySelectorAll("td[data-slot]");
-            allCells.forEach(td => {
-                const slot = td.dataset.slot;
-                const pattern = slotPattern[slot];
-
-                td.classList.remove("rest", "study-cell", "done");
-                td.innerHTML = "";
-                td.removeAttribute("data-hours");
-
-                if (!pattern || pattern.topic === "rest") {
-                    td.classList.add("rest");
-                    td.textContent = "DESCANSO";
-                    return;
-                }
-
-                const topicData = plan.topics[pattern.topic];
-                if (!topicData) {
-                    td.classList.add("rest");
-                    td.textContent = "DESCANSO";
-                    return;
-                }
-
-                td.classList.add("study-cell");
-                td.dataset.hours = pattern.hours ?? 0;
-
-                const tagDiv = document.createElement("div");
-                tagDiv.classList.add("tag");
-                addTagClass(tagDiv, topicData.tag);
-                tagDiv.textContent = topicData.label;
-                td.appendChild(tagDiv);
-
-                const detailKey = pattern.detail;
-                const detailText = topicData.details?.[detailKey];
-                if (detailText) {
-                    const small = document.createElement("div");
-                    small.className = "cell-text-small";
-                    small.textContent = detailText;
-                    td.appendChild(small);
-                }
-            });
-
-            attachClickHandlers();
-            calculateTotalPlannedHours();
-            updateTasksInfo();
-        }
-
-        // ================= 5. CLIQUES E RESUMO =================
-        function attachClickHandlers() {
-            studyCells = Array.from(document.querySelectorAll("td.study-cell"));
-            studyCells.forEach(cell => {
-                cell.onclick = () => {
-                    cell.classList.toggle("done");
-                    updateTasksInfo();
-                };
-            });
-        }
-
-        function updateTasksInfo() {
-            const totalTasks = studyCells.length;
-            let doneTasks = 0;
-            let hoursDone = 0;
-
-            studyCells.forEach(cell => {
-                if (cell.classList.contains("done")) {
-                    doneTasks++;
-                    const hours = parseFloat(cell.dataset.hours || "0");
-                    hoursDone += hours;
-                }
-            });
-
-            if (tasksInfo) {
-                tasksInfo.textContent =
-                    `Blocos concluídos: ${doneTasks}/${totalTasks} • Horas concluídas: ${hoursDone.toFixed(1)}h`;
-            }
-        }
-
-        function calculateTotalPlannedHours() {
-            let total = 0;
-            studyCells.forEach(cell => {
-                const hours = parseFloat(cell.dataset.hours || "0");
-                total += hours;
-            });
-            const totalHoursEl = document.getElementById("total-hours");
-            if (totalHoursEl) {
-                totalHoursEl.textContent = `${total.toFixed(1)}h`;
-            }
-        }
-
-        // ================= 6. MAPA DE NOME -> CURSO (para puxar do diagnóstico) =================
-        const nomeParaCurso = {
-            "Desenvolvedor Front End": "frontend",
-            "Desenvolvedor Front-End": "frontend",
-            "Front End": "frontend",
-
-            "Desenvolvedor Back End": "backend",
-            "Desenvolvedor Back end": "backend",
-            "Back End": "backend",
-
-            "Desenvolvedor Full Stack": "fullstack",
-            "Full Stack": "fullstack",
-
-            "Desenvolvedor Mobile": "mobile",
-            "Mobile": "mobile",
-
-            "Engenheiro de Dados": "dataeng",
-            "Engenharia de Dados": "dataeng",
-
-            "Cientista de Dados": "datasci",
-            "Data Scientist": "datasci",
-
-            "Engenheiro de Machine Learning": "mleng",
-            "Machine Learning Engineer": "mleng",
-
-            "Engenheiro de IA/LLM Engineer": "llm",
-            "Engenheiro de IA": "llm",
-            "LLM Engineer": "llm",
-
-            "DevOps/SRE (Site Reliability Engineer)": "devops",
-            "DevOps / SRE": "devops",
-
-            "QA/Analista": "qa",
-            "QA / Analista": "qa",
-
-            "Engenheiro de Software": "softeng",
-            "Engenharia de Software": "softeng",
-
-            "Arquiteto de Software": "architect"
-        };
-
-        function detectarCurso() {
-            // 1) ?curso=backend, por exemplo
-            let curso = getQueryParam("curso");
-            if (curso && plans[curso]) {
-                return curso;
-            }
-
-            // 2) ?profissao=Desenvolvedor%20Front%20End
-            let profParam = getQueryParam("profissao");
-            if (profParam && nomeParaCurso[profParam]) {
-                return nomeParaCurso[profParam];
-            }
-
-            // 3) Tentar ler do localStorage algum valor que o diagnóstico possa ter salvo
-            try {
-                const possiveisChaves = [
-                    "profissaoAtual",
-                    "profissaoSelecionada",
-                    "skillpath-profissao",
-                    "skillpath-profissao-nome"
-                ];
-                for (const chave of possiveisChaves) {
-                    const valor = localStorage.getItem(chave);
-                    if (valor && nomeParaCurso[valor]) {
-                        return nomeParaCurso[valor];
-                    }
-                }
-            } catch (e) {
-                // ignora erro de localStorage (modo privado, etc.)
-            }
-
-            // 4) Se nada encontrado, usa frontend
-            return "frontend";
-        }
-
-        // ================= 7. INICIALIZAÇÃO =================
-        const cursoEscolhido = detectarCurso();
-        applyPlan(cursoEscolhido);
-    </script>
-
 </body>
 
 </html>
