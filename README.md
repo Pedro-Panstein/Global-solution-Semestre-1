@@ -269,7 +269,7 @@ O apresenta:
 
 Link para o vídeo
 
-["link aqui"](https://youtu.be/gtHxzJdHlN8)
+[https://youtu.be/gtHxzJdHlN8](https://youtu.be/gtHxzJdHlN8)
 
 ---
 
